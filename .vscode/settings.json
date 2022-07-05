@@ -1,0 +1,62 @@
+{
+    "workbench.colorCustomizations": {
+
+        "[One Dark Pro Darker]": {}
+    },
+
+    "editor.tokenColorCustomizations": {
+        "[One Dark Pro Darker]": {
+            "textMateRules": [
+                {
+                    "scope": "text.html.derivative",
+                    "settings": {
+                        "foreground": "#ffffff",
+                        "fontStyle": ""
+                    }
+                },
+
+                {
+                    "scope": "entity.other.attribute-name.class.css",
+                    "settings": {
+                        "foreground": "#fa2f2f",
+                        "fontStyle": ""
+                    }
+                },
+
+                {
+                    "scope": "entity.name.tag",
+                    "settings": {
+                        "foreground": "#fa2f2f",
+                        "fontStyle": ""
+                    }
+                },
+
+                {
+                    "scope": "string.quoted.double.html",
+                    "settings": {
+                        "foreground": "#78ba57",
+                        "fontStyle": ""
+                    }
+                },
+
+                {
+                    "scope": "support.type.property-name.css",
+                    "settings": {
+                        "foreground": "#ffffff",
+                        "fontStyle": ""
+                    }
+                },
+            ]
+        }
+    }
+}
+
+
+
+// string.quoted.double.html
+// meta.attribute.rel.html
+// meta.tag.metadata.link.void.html
+// text.html.derivative
+// foreground	string
+
+// support.type.property-name
