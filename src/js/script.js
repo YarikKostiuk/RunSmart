@@ -37,5 +37,52 @@ $(document).ready(function(){
         })
     })
 
+    // Модальні вікна
 
-  });
+    $('[data-modal=consultation]').on('click', function() {
+        $('.overlay, #consultation').fadeIn();
+
+    });
+    
+    $('.modal__close').on('click', function(){
+        $('.overlay, #consultation, #thanks, #order').fadeOut();
+    });
+
+    // $('.button_mini').on('click', function(){
+    //     $('.overlay, #order').fadeIn();
+    // });
+
+    $('.button_mini').each(function(i) {
+        $(this).on('click', function() {
+            $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+            $('.overlay, #order').fadeIn();
+        });
+    });
+
+    function valideForms(form){
+        $(form).validate({
+            rules: {
+                name: "required",
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+    
+            messages: {
+                name: "Будь-ласка введіть своє ім'я",
+                phone: "Будь-ласка введіть свій телефон",
+                email: {
+                  required: "Будь-ласка введіть свою пошту",
+                  email: "Невірно введена пошта"
+                }
+            }
+        });
+    };
+
+    valideForms('#consultation-form');
+    valideForms('#order form');
+    valideForms('#consultation form');
+
+});
