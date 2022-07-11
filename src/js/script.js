@@ -48,10 +48,6 @@ $(document).ready(function(){
         $('.overlay, #consultation, #thanks, #order').fadeOut();
     });
 
-    // $('.button_mini').on('click', function(){
-    //     $('.overlay, #order').fadeIn();
-    // });
-
     $('.button_mini').each(function(i) {
         $(this).on('click', function() {
             $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
@@ -84,5 +80,40 @@ $(document).ready(function(){
     valideForms('#consultation-form');
     valideForms('#order form');
     valideForms('#consultation form');
+
+    $('form').submit(function(e) {
+        e.preventDefault();
+        if(!$(this).valid()) {
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn('slow');
+
+            $('form').trigger('reset');
+        });
+        return false;
+    });
+
+    // Плавний скрол сторінки
+
+    $(window).scroll(function() {
+        if($(this).scrollTop() > 1600) {
+            $('.pageup').fadeIn();
+        } else {
+            $('.pageup').fadeOut();
+        }
+    });
+
+    $("a[href=#up]").click(function(){
+        const _href = $(this).attr("href");
+        $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+        return false;
+    });
 
 });
